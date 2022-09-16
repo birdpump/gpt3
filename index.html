@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>A function is triggered when the user is pressing a key in the input field.</p>
+
+<input type="text" onkeypress="myFunction()">
+
+<script>
+function myFunction() {
+  fetch('https://api.openai.com/v1/completions', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer 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'
+    },
+    body: JSON.stringify({
+        'model': 'text-davinci-002',
+        'prompt': 'what is duck',
+        'temperature': 0.7,
+        'max_tokens': 60,
+        'top_p': 1,
+        'frequency_penalty': 0,
+        'presence_penalty': 0
+    })
+});
+}
+</script>
+
+</body>
+</html>
